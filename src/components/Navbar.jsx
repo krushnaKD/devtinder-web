@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { FiUser, FiEdit, FiSettings } from "react-icons/fi";
+import  {useSelector} from "react-redux";
 
 const Navbar = () => {
 
+  const user = useSelector((store)=>store.user)
+ 
     const [isOpen, setIsOpen] = useState(false);
     
     const handleMouseLeave = () => {
@@ -16,7 +19,7 @@ const Navbar = () => {
     <h1 className="text-2xl text-white px-2 mx-10">🧑‍💻 DevTinder</h1>
     <div className="relative inline-block">
       <img
-        src="https://people.com/thmb/BrIPAgGFxFoqPjNsZAJV-pYxzf4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(791x399:793x401)/elon-musk-interns-020325-c5d3c8c890cd472fb043c95552257117.jpg" 
+        src={user===null ? "https://people.com/thmb/BrIPAgGFxFoqPjNsZAJV-pYxzf4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(791x399:793x401)/elon-musk-interns-020325-c5d3c8c890cd472fb043c95552257117.jpg": user.photoUrl} 
         alt="Profile"
         className="w-18 h-18 mx-20 rounded-full cursor-pointer object-cover"
         onMouseEnter={() => setIsOpen(true)}
