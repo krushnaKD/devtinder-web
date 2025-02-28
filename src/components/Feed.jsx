@@ -10,7 +10,7 @@ const user = useSelector((store)=>store.user)
     <div className=''>
      {user && <div className="flex flex-col gap-2 items-center justify-center" >
      <h1 className='text-3xl font-semibold text-center my-20'>Welcome {user.firstName}!</h1>
-       
+       <h1>hee</h1>
        <img className='w-62 h-62 rounded-full object-cover' src={user.photoUrl} alt="" />
      </div>}
 
