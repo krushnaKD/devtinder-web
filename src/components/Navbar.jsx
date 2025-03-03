@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../constants";
 import { removeUser } from "../utils/userSlice";
+import { GiThreeFriends } from "react-icons/gi";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -72,12 +73,18 @@ const Navbar = () => {
                 <FiEdit /> Profile
               </Link>
               <Link
+              to="/requests"
+                className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
+              >
+              <GiThreeFriends />   Request
+              </Link>
+              <Link
                 onClick={logOutfunc}
                 className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
               >
                 <FiSettings /> LogOut
               </Link>
-             
+           
             </ul>
           </div>
         )}
