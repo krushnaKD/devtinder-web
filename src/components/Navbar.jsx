@@ -62,20 +62,22 @@ const Navbar = () => {
           >
             <ul className="py-2">
               <Link
-                to="/profile"
+                to="/Connections"
                 className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
               >
-                <FiUser /> Profile
+                <FiUser />  Connections
               </Link>
-              <li className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer">
-                <FiEdit /> Edit
-              </li>
+              <Link to="/profile"  
+              className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer">
+                <FiEdit /> Profile
+              </Link>
               <Link
                 onClick={logOutfunc}
                 className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
               >
                 <FiSettings /> LogOut
               </Link>
+             
             </ul>
           </div>
         )}
