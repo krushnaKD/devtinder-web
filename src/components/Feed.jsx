@@ -9,7 +9,6 @@ const Feed = () => {
   const user = useSelector((store) => store.user);
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
-  console.log(user);
 
   const getFeed = async () => {
     if (feed) return;
