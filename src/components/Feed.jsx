@@ -17,7 +17,6 @@ const Feed = () => {
       const res = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
       });
-      // console.log(res.data.users);
 
       dispatch(addfeed(res.data.users));
     } catch (error) {
@@ -28,6 +27,9 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+   if(!feed) return;
+
+   if(feed.length <= 0) return <h1 className="text-center font-semibold text-3xl my-10">There is No User🤨</h1>
 
   return (
     feed && (

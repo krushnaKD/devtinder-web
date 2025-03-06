@@ -10,7 +10,7 @@ import { GiThreeFriends } from "react-icons/gi";
 const Navbar = () => {
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseLeave = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
   const logOutfunc = async () => {
     try {
       await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
-      dispatch(removeUser())
+      dispatch(removeUser());
       navigate("/login");
     } catch (error) {
       console.log(error.message);
@@ -38,7 +38,7 @@ const Navbar = () => {
         <img
           src={
             user === null
-              ? "https://people.com/thmb/BrIPAgGFxFoqPjNsZAJV-pYxzf4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(791x399:793x401)/elon-musk-interns-020325-c5d3c8c890cd472fb043c95552257117.jpg"
+              ? "https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"
               : user.photoUrl
           }
           alt="Profile"
@@ -66,17 +66,19 @@ const Navbar = () => {
                 to="/Connections"
                 className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
               >
-                <FiUser />  Connections
+                <FiUser /> Connections
               </Link>
-              <Link to="/profile"  
-              className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer">
+              <Link
+                to="/profile"
+                className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
+              >
                 <FiEdit /> Profile
               </Link>
               <Link
-              to="/requests"
+                to="/requests"
                 className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
               >
-              <GiThreeFriends />   Request
+                <GiThreeFriends /> Request
               </Link>
               <Link
                 onClick={logOutfunc}
@@ -84,7 +86,6 @@ const Navbar = () => {
               >
                 <FiSettings /> LogOut
               </Link>
-           
             </ul>
           </div>
         )}
