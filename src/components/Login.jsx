@@ -43,11 +43,13 @@ const Login = () => {
       emailID,
       password
      },{withCredentials:true})
+     console.log(res);
+     
      dispatch(adduser(res.data.data))
      navigate("/profile")
    } catch (error) {
      console.log(error.message)
-   }y
+   }
   }
 
   return (
