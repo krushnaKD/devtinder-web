@@ -15,6 +15,7 @@ const UserCard = ({ user }) => {
         {},
         { withCredentials: true }
       );
+      
       dispatch(removefromfedd(userId));
     } catch (error) {
       console.log(error.message);
