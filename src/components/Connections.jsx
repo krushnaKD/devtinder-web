@@ -43,6 +43,7 @@ const Connections = () => {
             <h1 className="mt-2 px-2">{con.firstName + " " + con.lastName}</h1>
             <h2 className="mt-1 px-2">{con.age}</h2>
             <p className="px-2 mt-2">{con.about}</p>
+            <p>hee</p>
           </div>
         ))}
       </div>
