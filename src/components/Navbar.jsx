@@ -81,6 +81,12 @@ const Navbar = () => {
                 <GiThreeFriends /> Request
               </Link>
               <Link
+                to="/prmium"
+                className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
+              >
+                <GiThreeFriends /> premium
+              </Link>
+              <Link
                 onClick={logOutfunc}
                 className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
               >
