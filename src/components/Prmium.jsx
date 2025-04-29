@@ -4,19 +4,43 @@ import { BASE_URL } from "../constants";
 
 const Prmium = () => {
   const buyMemberShip = async (type) => {
-    try {
-      const order = await axios.post(
-        BASE_URL + "/payment/create",
-        {
-          membershiType:type,
-        },
-        {
-          withCredentials: true,
-        }
-      );
-    } catch (error) {
-      console.log(error.massage);
-    }
+
+    const order = await axios.post(
+      BASE_URL + "/payment/create",
+      {
+        membershiType: type,
+      },
+      {
+        withCredentials: true,
+      }
+    );
+
+    console.log(order);
+
+    const { currency, amount, orderId, notes, keyId, emailId } = order.data;
+
+    const options = {
+      key: keyId,
+      amount,
+      currency,
+      name: "KD_01",
+      description: "Connect to New People",
+      order_id: orderId,
+
+      prefill: {
+        name: notes.firstName + "" + notes.lastName,
+        email: emailId,
+        contact: "9999999999",
+      },
+      theme: {
+        color: "#F37254",
+      },
+    };
+
+    console.log(options);
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (
